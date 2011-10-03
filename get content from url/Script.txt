@@ -1,0 +1,12 @@
+var url = new java.net.URL('http://search.twitter.com/search.json?q=@kentos');
+var is = url.openStream();
+var dis = new java.io.DataInputStream(new java.io.BufferedInputStream(is));
+var content = "";
+var line = "";
+
+while ((line = dis.readLine()) != null) {
+	content += line;
+}
+
+is.close();
+var data = eval('(' + content + ')');
